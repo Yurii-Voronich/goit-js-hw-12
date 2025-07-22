@@ -1,4 +1,4 @@
-import { galleryEl, loaderEl } from '../main';
+import { galleryEl, loaderEl, buttonEl } from '../main';
 import SimpleLightbox from 'simplelightbox';
 export const createMarkup = arr => {
   return arr
@@ -15,7 +15,7 @@ export const createMarkup = arr => {
         return `<li class="gallery-item">
 	<a class="gallery-link" href="${largeImageURL}">
 		<img 
-        width="360"
+        
 		  class="gallery-image" 
 		  src="${webformatURL}" 
 		  alt="${tags}" 
@@ -33,11 +33,10 @@ export const createMarkup = arr => {
     .join('');
 };
 export const renderGallery = arr => {
-  clearMarkup();
-  galleryEl.innerHTML = createMarkup(arr);
+  galleryEl.insertAdjacentHTML('beforeend', createMarkup(arr));
   createLightbox();
 };
-const clearMarkup = () => {
+export const clearMarkup = () => {
   galleryEl.innerHTML = '';
 };
 const gallery = new SimpleLightbox('.gallery a');
@@ -49,4 +48,10 @@ export const showLoader = () => {
 };
 export const hideLoader = () => {
   loaderEl.classList.add('visually-hidden');
+};
+export const showLoadMoreButton = () => {
+  buttonEl.classList.remove('visually-hidden');
+};
+export const hideLoadMoreButton = () => {
+  buttonEl.classList.add('visually-hidden');
 };
