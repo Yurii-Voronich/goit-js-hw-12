@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { perPage } from '../main';
-export const getImagesByQuery = (query, page) => {
-  return axios.get('https://pixabay.com/api/', {
+export const getImagesByQuery = async (query, page) => {
+  const resp = await axios.get('https://pixabay.com/api/', {
     params: {
       key: '51348790-b4b99e7923fa7dbd5fd948fd1',
       q: query,
@@ -12,4 +12,5 @@ export const getImagesByQuery = (query, page) => {
       per_page: perPage,
     },
   });
+  return resp.data;
 };

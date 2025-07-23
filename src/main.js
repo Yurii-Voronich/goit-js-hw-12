@@ -36,7 +36,7 @@ const onSubmit = async e => {
     hideLoadMoreButton();
     buttonEl.removeEventListener('click', onShowMoreClick);
     currentPage = 1;
-    const { data } = await getImagesByQuery(userQuery, currentPage);
+    const data = await getImagesByQuery(userQuery, currentPage);
 
     totalPages = Math.ceil(data.totalHits / perPage);
 
