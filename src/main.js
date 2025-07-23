@@ -69,7 +69,7 @@ const onShowMoreClick = async e => {
   try {
     showLoader();
     currentPage++;
-    const { data } = await getImagesByQuery(userQuery, currentPage);
+    const data = await getImagesByQuery(userQuery, currentPage);
     renderGallery(data.hits);
     hideLoader();
     scrollBy({
